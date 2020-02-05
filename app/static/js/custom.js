@@ -79,8 +79,6 @@ function stop_monitor() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function clear_ui() {
-    console.log("CLEARING UI")
-
     document.getElementById("ip").innerText = '-';
     document.getElementById("port").innerText = '-';
     document.getElementById("online-status").innerText = '-';
@@ -90,7 +88,7 @@ function clear_ui() {
     // document.getElementById("email-addresses").innerText = '-';
 }
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 function start_polling_status() {
     // If clear_and_update_ui is already doing, stop doing it
@@ -111,7 +109,6 @@ function update_ui() {
     success = (response != null) ? JSON.parse(response)['success'] : false;
     if (success) {
         document.getElementById("name").innerText = JSON.parse(response)['status']['name'];
-
         document.getElementById("ip").innerText = JSON.parse(response)['status']['ip_address'];
         document.getElementById("port").innerText = JSON.parse(response)['status']['port'];
 
