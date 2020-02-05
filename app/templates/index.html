@@ -1,0 +1,76 @@
+{% extends "base.html" %} {% block content %}
+
+<div id="index-content">
+
+  <div class="container">
+    
+    <table class="striped highlight bordered centered">
+      <thead>
+        <tr">
+          <th colspan="2" scope="col" id="name" class="table-title">NAME OF MONITOR TARGET</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>IP Address</b></td>
+          <td id="ip">10.10.10.10</td>
+        </tr>
+        <tr>
+          <td><b>Port Number</b></td>
+          <td id="port">999</td>
+        </tr>
+        <tr>
+          <td><b>Online Status</b></td>
+          <td id="online-status" class="online">Online</td>
+        </tr>
+        <tr>
+          <td><b>Date</b></td>
+          <td id="date">Feburary, 04, 2020</td>
+        </tr>
+        <tr>
+          <td><b>Time</b></td>
+          <td id="time">15:54</td>
+        </tr>
+        <tr>
+          <td><b>Slack Channel</b></td>
+          <td id="slack-channel">#something</td>
+        </tr>
+        <tr>
+          <td><b>Email Addresses</b></td>
+          <td id="email-addresses">blah@gmail.com, yo@mama.com</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <!-- TODO: Add a online history plot  -->
+
+    <div class="row">
+      <div class="col s6 m6 l6">
+          <a
+          class="btn-controls waves-effect waves-light btn green lighten-1 z-depth-3"
+          id="btn-start-monitor"
+          onclick="start_monitor()"
+          >
+          Start Monitoring
+          </a>
+      </div>
+      <div class="col s6 m6 l6">
+        <a
+          class="btn-controls waves-effect waves-light btn red lighten-1 z-depth-3""
+          id="btn-stop-monitor"
+          onclick="stop_monitor()"
+          >Stop Monitoring</a
+        >
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <hr/>
+
+</div>
+
+{% endblock %}

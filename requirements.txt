@@ -1,0 +1,16 @@
+# Flask Stuff
+Flask
+Flask-Cors
+python-dotenv
+gevent
+
+# Slack Messaging
+slackclient
+
+# Formatting and Basic Tools
+coloredlogs
+pkg-resources
+requests
+pylint
+flake8
+git+https://github.com/GooeeIOT/pyfmt.git

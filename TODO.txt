@@ -1,0 +1,11 @@
+TODO:
+
+- Remove HTTP call logging
+    - https://stackoverflow.com/questions/14888799/disable-console-messages-in-flask-server
+    - https://stackoverflow.com/questions/11029717/how-do-i-disable-log-messages-from-the-requests-library
+
+- Change App/Bot Profile image
+- Add to Test center channel
+
+
+- Add ability to do multiple monitoring targets
