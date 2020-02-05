@@ -120,9 +120,6 @@ venv.bak/
 # mkdocs documentation
 /site
 
-# VS code configurations
-.vscode/
-
 # mypy
 .mypy_cache/
 .dmypy.json
@@ -130,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# VS code configurations
+.vscode/
+settings.json
