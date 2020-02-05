@@ -7,5 +7,7 @@ TODO:
 - Change App/Bot Profile image
 - Add to Test center channel
 
-
 - Add ability to do multiple monitoring targets
+
+- Add log2ram package to save SD card life:
+    - https://github.com/azlux/log2ram
