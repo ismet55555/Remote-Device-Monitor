@@ -42,16 +42,16 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python3 get-pip.py
 
 # Create the application directory
-RUN mkdir -p /TC-monitor
+RUN mkdir -p /device-monitor
 
 # Copy all files in current directory into application directory (container)
-COPY . /TC-monitor
+COPY . /device-monitor
 
 # Define working directory
-WORKDIR /TC-monitor
+WORKDIR /device-monitor
 
 # Give execture permission to start-up script
-RUN ["chmod", "+x", "/TC-monitor/start"]
+RUN ["chmod", "+x", "/device-monitor/start"]
 
 # Run the start-up script
-CMD [ "bash", "/TC-monitor/start" ]
+CMD [ "bash", "/device-monitor/start" ]

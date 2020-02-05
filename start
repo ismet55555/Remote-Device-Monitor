@@ -4,36 +4,36 @@ echo
 
 # Check to see if in the right base directory
 CURRENT_BASE_DIR=${PWD##*/}
-if [ $CURRENT_BASE_DIR = "TC-monitor" ]
+if [ $CURRENT_BASE_DIR = "device-monitor" ]
 then
     # Virtual enviromnment for flask application
-    echo "[TC-Monitor] - Checking if virtual enviroment is setup ..."
+    echo "[Device-Monitor] - Checking if virtual enviroment is setup ..."
     if [ -d ./env ]   # Check to see if virtual enviroment exists in current working directory
     then
-        echo "[TC-Monitor] - Virtual environment already exists (./env)"
-        echo "[TC-Monitor] - Activating virtual enviroment ..."
+        echo "[Device-Monitor] - Virtual environment already exists (./env)"
+        echo "[Device-Monitor] - Activating virtual enviroment ..."
         source env/bin/activate                      # Activate virtual enviroment
     else
-        echo "[TC-Monitor] - Creating a virtual environment for web application (./env) ..."
+        echo "[Device-Monitor] - Creating a virtual environment for web application (./env) ..."
         python3 -m venv env               # Creating the virtual environment
-        echo "[TC-Monitor] - Activating virtual enviroment ..."
+        echo "[Device-Monitor] - Activating virtual enviroment ..."
         source env/bin/activate                      # Activate virtual enviroment
-        echo "[TC-Monitor] - Installing all required python packages ..."
+        echo "[Device-Monitor] - Installing all required python packages ..."
         pip3 install -U -r requirements.txt     # Install all required packages for virtual environment
     fi
 
     # Running the flask application
-    echo "[TC-Monitor] - Starting web application ..."
+    echo "[Device-Monitor] - Starting web application ..."
     echo
     python3 main.py
     echo
-    echo "[TC-Monitor] - Web application has stopped"
+    echo "[Device-Monitor] - Web application has stopped"
 
     # TODO: Add watchdog for app crashes
 else
     # Current directory is not correct
     echo
-    echo "[TC-Monitor] - CRITICAL! - Application was not able to start up!"
-    echo "[TC-Monitor] - CRITICAL! - Shell script not executed within the correct directory"
+    echo "[Device-Monitor] - CRITICAL! - Application was not able to start up!"
+    echo "[Device-Monitor] - CRITICAL! - Shell script not executed within the correct directory"
     echo
 fi

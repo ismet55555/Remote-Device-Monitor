@@ -13,7 +13,7 @@ from gevent.pywsgi import WSGIServer
 
 # Running flask server
 if __name__ == '__main__':
-    logging.info('Starting flask server application (TC-Monitor) ...  ')
+    logging.info('Starting flask server application (Device-Monitor) ...  ')
     logging.info('Web application port:  7777')
     logging.info('Local Access:          http://localhost:7777/')
 
