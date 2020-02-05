@@ -87,7 +87,7 @@ function clear_ui() {
     document.getElementById("date").innerText = '-';
     document.getElementById("time").innerText = '-';
     document.getElementById("slack-channel").innerText = '-';
-    document.getElementById("email-addresses").innerText = '-';
+    // document.getElementById("email-addresses").innerText = '-';
 }
 
 
@@ -114,11 +114,19 @@ function update_ui() {
 
         document.getElementById("ip").innerText = JSON.parse(response)['status']['ip_address'];
         document.getElementById("port").innerText = JSON.parse(response)['status']['port'];
-        document.getElementById("online-status").innerText = JSON.parse(response)['status']['status'];
+
+        let status_text = 'Currently Unknown'
+        if (JSON.parse(response)['status']['status'] == 0) {
+            status_text = 'ONLINE'
+        } else {
+            status_text = 'OFFLINE'
+        }
+        document.getElementById("online-status").innerText = status_text;
+
         document.getElementById("date").innerText = JSON.parse(response)['status']['date'];
         document.getElementById("time").innerText = JSON.parse(response)['status']['time'];
         document.getElementById("slack-channel").innerText = JSON.parse(response)['status']['slack_channel'];
-        document.getElementById("email-addresses").innerText = JSON.parse(response)['status']['email_addresses'];
+        // document.getElementById("email-addresses").innerText = JSON.parse(response)['status']['email_addresses'];
     } else {
         clear_ui()
     }
