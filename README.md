@@ -1,6 +1,7 @@
 <h1 align="center">Remote Device Monitor :eyes:</h1>
 
-This web application is used to monitor a remote targets at a specified IP address at specified ports.
+This linux based web application is used to monitor a remote targets at a specified IP address (IPv4) at specified port numbers.
+
 Essentially, you install this web application onto any linux device (or linux container) that will at regular interval ping the specified remote addresses to see if it is online or offline.
 
 This remote device monitor has a simple web interface that shows the status of the monitored addresses. This web interface can be accessed through any common web browswer at the device monitor's host IP address, and at port *7777*.  
