@@ -39,7 +39,7 @@ class Monitor:
         self.started = False
 
         self._monitor_stop_flag = False
-        self._monitor_tc_router_thread = None
+        self._monitor_thread = None
 
         # Target Information
         self._name = name
@@ -95,25 +95,25 @@ class Monitor:
             logging.info("Starting monitor scanning ...")
             logging.info("Creating background thread for monitor scanning ...")
             # Defining the independent thread
-            self._monitor_tc_router_thread = threading.Thread(
-                target=self._monitor_tc_router, args=[scan_interval_sec]
+            self._monitor_thread = threading.Thread(
+                target=self._monitor, args=[scan_interval_sec]
             )
             # Lower stopping flag
             self._monitor_stop_flag = False
             # Running the thread
-            self._monitor_tc_router_thread.start()
+            self._monitor_thread.start()
             # Update monitor scan status
             self.started = True
             logging.info(
                 "Successfully started monitor scanning (Thread ID: {}). Scanning every {} seconds ...".format(
-                    self._monitor_tc_router_thread.ident, scan_interval_sec
+                    self._monitor_thread.ident, scan_interval_sec
                 )
             )
             return True
         else:
             logging.warning(
                 "Failed to start monitor scanning. It is already running (Thread ID: {})".format(
-                    self._monitor_tc_router_thread.ident
+                    self._monitor_thread.ident
                 )
             )
             return False
@@ -128,14 +128,14 @@ class Monitor:
         if self.started:
             logging.info(
                 "Stopping monitor scanning (Thread ID: {}) ...".format(
-                    self._monitor_tc_router_thread.ident
+                    self._monitor_thread.ident
                 )
             )
             # Signal stopping of thread to thread
             self._monitor_stop_flag = True
             # Waiting until independent thread has stopped
-            self._monitor_tc_router_thread.join()
-            self._monitor_tc_router_thread = None
+            self._monitor_thread.join()
+            self._monitor_thread = None
             # Update monitor scan status
             self.started = False
             logging.info("Successfully stopped monitor scanning")
@@ -146,7 +146,7 @@ class Monitor:
 
     ###########################################################################
 
-    def _monitor_tc_router(self, scan_interval_sec: int):
+    def _monitor(self, scan_interval_sec: int):
         """
         Independent thread that monitors TC router.
         Runs in a separate thread in the background.
@@ -340,7 +340,7 @@ class Monitor:
         """
         return self.started
 
-    def get_tc_status(self):
+    def get_status(self):
         """
         Getter for tc status
         """

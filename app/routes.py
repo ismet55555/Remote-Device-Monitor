@@ -93,13 +93,13 @@ def tc_status():
     REST API endpoint to get the complete status of slideshow
     :return: json confirmation message
     """
-    current_tc_status = monitor_obj.get_tc_status()
+    current_status = monitor_obj.get_status()
 
     success = True
     message = "Successfully retrieved current TC status"
     # Logging message
     logging.debug(message) if success else logging.error(message)
-    return jsonify({"success": success, "message": message, "status": current_tc_status})
+    return jsonify({"success": success, "message": message, "status": current_status})
 
 
 ###############################################################################
