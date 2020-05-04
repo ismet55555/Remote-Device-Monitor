@@ -24,7 +24,9 @@ However, if wanting to access the web interface from anywhere on the same/local 
 
 # :bell: Status Notifications
 ## Slack Notifications
-This device monitor will post a slack message to a specified slack channel.  In order to use this feature, you have to set up a slack bot and provide the web application with a slack bot API token (starts with `xoxb- ...`).  This slack bot API token then must be stored as a enviromental variable along with this web application with the environmental variable name `SLACK_BOT_TOKEN`
+This device monitor will post a slack message to a specified slack channel.  In order to use this feature, you have to set up a slack bot and provide the web application with a slack bot API token (starts with `xoxb- ...`).  For detailed information on how to do that visit: https://api.slack.com/authentication/basics. 
+
+This slack bot API token then must be stored as a enviromental variable along with this web application with the environmental variable name `SLACK_BOT_TOKEN`. 
 
 ## Email Notifications
 Work in progress... BUT the work has begun :-)
