@@ -11,7 +11,6 @@ body {
   border: blue;
 }
 
-
 /* ========================================================= */
 /* Version Number  */
 #version {
@@ -23,11 +22,10 @@ body {
   margin-bottom: 40px;
 }
 
-
 /* ========================================================= */
 /* Table Title  */
 .table-title {
-    font-size: 20px;
+  font-size: 20px;
 }
 /* Lower padding on table entries  */
 table > tbody > tr > td {
@@ -53,7 +51,7 @@ table {
   width: 100%;
 }
 .btn {
-    text-transform: none;
+  text-transform: none;
 }
 
 /* Online and Offline Text formatting  */
@@ -61,7 +59,6 @@ table {
   color: rgb(46, 100, 30);
   font-weight: bold;
 }
-
 
 /* ========================================================= */
 /* 404 webpage styling */
