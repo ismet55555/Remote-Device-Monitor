@@ -15,7 +15,10 @@
 
 # Raspberry PI 3 Debian Base Image
 #   - https://hub.docker.com/r/balenalib/raspberry-pi-debian-python
-FROM balenalib/raspberry-pi-debian-python
+#FROM balenalib/raspberry-pi-debian-python
+FROM ubuntu:bionic
+#FROM python:3.7-alpine
+
 
 # Install base OS tools and dependencies
 RUN apt-get update && apt-get install -y \
@@ -23,15 +26,13 @@ RUN apt-get update && apt-get install -y \
     netcat \
     curl \
     git \
-    man \
     net-tools \
     openssh-server \
     vim \
-    htop \
     wget \
     python3-venv \
     python3-pip \
-    cmatrix 
+    libpython-dev
 
 # Clearing out local repo of retrieved OS tools and dependencies
 RUN apt-get clean && \
@@ -41,6 +42,8 @@ RUN apt-get clean && \
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python3 get-pip.py
 
+RUN pip install wheel
+
 # Create the application directory
 RUN mkdir -p /device-monitor
 
@@ -49,6 +52,8 @@ COPY . /device-monitor
 
 # Define working directory
 WORKDIR /device-monitor
+
+EXPOSE 7777
 
 # Give execture permission to start-up script
 RUN ["chmod", "+x", "/device-monitor/start"]
